@@ -41,8 +41,7 @@ Route::get("/statistik/data", function () {
         "total" => Vote::select(Vote::raw('COUNT(*) as count'))
             ->first()
     ];
-    Log::info('Broadcasting event with data:', $vote_counts);
-    broadcast(new ChartDataUpdated($vote_counts));
+
     return response()->json($vote_counts);
 });
 Route::post("/statistik", [StatisticsContorller::class, 'index']);

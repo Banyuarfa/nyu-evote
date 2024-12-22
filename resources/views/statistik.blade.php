@@ -70,16 +70,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
-    <script type="module">
+    <script>
+        // Ambil konteks canvas untuk chart OSIS dan MPK
         const osisCtx = document.getElementById('osisChart').getContext('2d');
         const mpkCtx = document.getElementById('mpkChart').getContext('2d');
+
         let osisVoteChart;
         let mpkVoteChart;
-        let lastData;
 
-        // Function to update vote counts on the page
+        // Fungsi untuk memperbarui jumlah suara di halaman
         function updateVoteCounts(data) {
-            // console.log(data.total.count)
             document.querySelector("#total").textContent = data.total.count;
             document.querySelector("#osis-1").textContent = data.osis[0].count;
             document.querySelector("#osis-2").textContent = data.osis[1].count;
@@ -90,82 +90,58 @@
             document.querySelector("#total-mpk").textContent = data.total_osis_mpk[0].count;
         }
 
-        // Function to initialize or update charts
-        function updateChart(chart, data, labels, colors) {
-            if (chart) {
-                chart.data.labels = labels;
-                chart.data.datasets[0].data = data;
-                chart.update();
-            }
+        // Fungsi untuk inisialisasi atau memperbarui chart
+        function createChart(chart, data, labels, colors) {
+            return new Chart(chart, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Jumlah Votes',
+                        data: data.map(vote => vote.count),
+                        backgroundColor: colors,
+                    }],
+                },
+            });
         }
 
-        // Fetch initial data
+        function updateChart(data) {
+            osisVoteChart.data.datasets[0].data = data.osis.map(vote => vote.count);
+            osisVoteChart.update();
+            mpkVoteChart.data.datasets[0].data = data.mpk.map(vote => vote.count);
+            mpkVoteChart.update();
+        }
+
         async function fetchData() {
-            const response = await fetch("/statistik/data");
-            const data = await response.json();
-            lastData = data;
+            try {
+                const response = await fetch("/statistik/data");
+                const data = await response.json();
 
-            updateVoteCounts(data);
+                if (osisVoteChart || mpkVoteChart) {
+                    updateChart(data)
+                    updateVoteCounts(data);
+                    return;
+                }
 
-            // Update or create OSIS chart
-            osisVoteChart = new Chart(osisCtx, {
-                type: 'pie',
-                data: {
-                    labels: ['Paslon 1', 'Paslon 2', 'Paslon 3'],
-                    datasets: [{
-                        label: 'Jumlah Votes',
-                        data: data.osis.map(vote => vote.count),
-                        backgroundColor: ['rgb(251, 113, 133)', 'rgb(167, 139, 250)',
-                            'rgb(56, 189, 248)'
-                        ],
-                    }],
-                },
-            });
-
-            // Update or create MPK chart
-            mpkVoteChart = new Chart(mpkCtx, {
-                type: 'pie',
-                data: {
-                    labels: ['Paslon 1', 'Paslon 2'],
-                    datasets: [{
-                        label: 'Jumlah Votes',
-                        data: data.mpk.map(vote => vote.count),
-                        backgroundColor: ['rgb(251, 113, 133)', 'rgb(167, 139, 250)'],
-                    }],
-                },
-            });
-        }
-
-        // Listen for real-time updates
-        Echo.channel('statistik')
-            .listen('ChartDataUpdated', (e) => {
-                console.log(e.data)
-
-                updateVoteCounts(e.data.total);
-                fetchData();
-
-
-                // Update OSIS chart
-                osisVoteChart = updateChart(
-                    osisVoteChart,
-                    e.data.osis.map(vote => vote.count),
+                osisVoteChart = createChart(
+                    osisCtx,
+                    data.osis,
                     ['Paslon 1', 'Paslon 2', 'Paslon 3'],
                     ['rgb(251, 113, 133)', 'rgb(167, 139, 250)', 'rgb(56, 189, 248)']
                 );
 
-                // Update MPK chart
-                mpkVoteChart = updateChart(
-                    mpkVoteChart,
-                    e.data.mpk.map(vote => vote.count),
+                mpkVoteChart = createChart(
+                    mpkCtx,
+                    data.mpk,
                     ['Paslon 1', 'Paslon 2'],
-                    ['rgb(45, 212, 191)', 'rgb(251, 191, 36)']
+                    ['rgb(251, 113, 133)', 'rgb(167, 139, 250)']
                 );
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
 
-                // Uncomment to play sound if necessary
-                // document.querySelector("#notificationSound").play();
-            });
-
-        // Fetch initial data on page load
         fetchData();
+        setInterval(fetchData, 5000);
     </script>
 @endsection
