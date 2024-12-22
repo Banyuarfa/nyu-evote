@@ -8,8 +8,6 @@
                 <h1 class="self-center text-center text-2xl font-bold">Admin</h1>
             </header>
             <main>
-                <input type="text" id="username" name="username" placeholder="Masukkan Username"
-                    class="border-b p-2 text-center focus:outline-none">
                 <input type="password" id="password" name="password" placeholder="Masukkan Password"
                     class="border-b p-2 text-center focus:outline-none">
             </main>

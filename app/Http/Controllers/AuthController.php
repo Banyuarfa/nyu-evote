@@ -9,7 +9,7 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $credential = ["username" => $request->username, "password" => $request->password];
+        $credential = ["username" => "admin", "password" => $request->password];
         if (Auth::attempt($credential)) {
             $request->session()->regenerate();
             return redirect("/");
