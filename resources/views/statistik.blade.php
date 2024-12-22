@@ -80,14 +80,16 @@
 
         // Fungsi untuk memperbarui jumlah suara di halaman
         function updateVoteCounts(data) {
-            document.querySelector("#total").textContent = data.total.count;
+            document.querySelector("#total").textContent = data.total.all.count;
+
             document.querySelector("#osis-1").textContent = data.osis[0].count;
             document.querySelector("#osis-2").textContent = data.osis[1].count;
             document.querySelector("#osis-3").textContent = data.osis[2].count;
-            document.querySelector("#total-osis").textContent = data.total_osis_mpk[1].count;
+            document.querySelector("#total-osis").textContent = data.total.osis.count;
+
             document.querySelector("#mpk-1").textContent = data.mpk[0].count;
             document.querySelector("#mpk-2").textContent = data.mpk[1].count;
-            document.querySelector("#total-mpk").textContent = data.total_osis_mpk[0].count;
+            document.querySelector("#total-mpk").textContent = data.total.mpk.count;
         }
 
         // Fungsi untuk inisialisasi atau memperbarui chart

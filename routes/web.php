@@ -35,11 +35,12 @@ Route::get("/statistik/data", function () {
             ->whereIn('type', ['mpk'])
             ->groupBy("paslon")
             ->get(),
-        "total_osis_mpk" => Vote::select("type", Vote::raw('COUNT(*) as count'))
-            ->groupBy("type")
-            ->get(),
-        "total" => Vote::select(Vote::raw('COUNT(*) as count'))
-            ->first()
+        "total" =>
+        [
+            "all" => Vote::select(Vote::raw('COUNT(*) as count'))->first(),
+            "osis" => Vote::select(Vote::raw('COUNT(*) as count'))->where('type', "=", 'osis')->first(),
+            "mpk" => Vote::select(Vote::raw('COUNT(*) as count'))->where('type', "=", 'mpk')->first()
+        ],
     ];
 
     return response()->json($vote_counts);
