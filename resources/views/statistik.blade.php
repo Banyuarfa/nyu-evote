@@ -71,14 +71,12 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
     <script>
-        // Ambil konteks canvas untuk chart OSIS dan MPK
         const osisCtx = document.getElementById('osisChart').getContext('2d');
         const mpkCtx = document.getElementById('mpkChart').getContext('2d');
 
         let osisVoteChart;
         let mpkVoteChart;
 
-        // Fungsi untuk memperbarui jumlah suara di halaman
         function updateVoteCounts(data) {
             document.querySelector("#total").textContent = data.total.all.count;
 
@@ -92,7 +90,6 @@
             document.querySelector("#total-mpk").textContent = data.total.mpk.count;
         }
 
-        // Fungsi untuk inisialisasi atau memperbarui chart
         function createChart(chart, data, labels, colors) {
             return new Chart(chart, {
                 type: 'pie',
