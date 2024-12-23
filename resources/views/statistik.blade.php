@@ -3,66 +3,77 @@
     @php
         $vote_counts = json_decode($vote_counts, true);
     @endphp
-    <section class="min-h-[calc(100vh_-_72px)] bg-slate-100 p-16">
+    <section class="min-h-[calc(100vh_-_72px)] bg-slate-100 p-8 md:p-12 lg:p-16">
         @auth
             <audio src="assets/sounds/done_sound_for_admin.mp3"></audio>
         @endauth
-        <main class="grid h-full w-full gap-16 rounded-lg bg-white p-8">
-            <h1 class="text-center text-6xl font-bold">Total Vote <span id="total" class="block"></span></h1>
+        <main class="grid min-h-screen w-full rounded-lg bg-white p-2 md:p-6 lg:p-8">
+            <h1 class="py-7 text-center text-2xl font-bold text-slate-900 md:py-14 md:text-4xl lg:py-28 lg:text-6xl">Total
+                Vote: <span class="text-5xl md:text-7xl lg:text-9xl" id="total"></span></h1>
 
-            <div class="flex h-[500px] gap-8">
-                <canvas id="osisChart"></canvas>
-                <div class="grid place-content-center">
+            <div class="grid justify-center lg:grid-cols-2 lg:gap-8">
+                <div class="h-[250px] w-full md:h-[350px] lg:h-[500px]"><canvas id="osisChart"></canvas></div>
+
+                <div class="grid h-[250px] items-start justify-center md:h-[350px] lg:h-[500px] lg:place-content-center">
                     <table>
                         <tbody>
                             <tr>
-                                <td class="text-6xl font-bold" colspan="3">Paslon OSIS</td>
+                                <td class="font-['Poppins'] text-2xl font-bold text-slate-900 md:text-4xl lg:text-6xl"
+                                    colspan="3">Paslon OSIS</td>
                             </tr>
                             <tr>
-                                <td class="text-4xl font-semibold">Paslon 1: </td>
-                                <td class="text-4xl font-semibold" id="osis-1"></td>
+                                <td class="text-xl font-semibold text-rose-400 md:text-2xl lg:text-3xl">Paslon 1: </td>
+                                <td class="text-2xl font-semibold text-rose-400 md:text-3xl lg:text-4xl" id="osis-1">
+                                </td>
                             </tr>
                             <tr>
-                                <td class="text-4xl font-semibold">Paslon 2: </td>
-                                <td class="text-4xl font-semibold" id="osis-2"></td>
+                                <td class="text-xl font-semibold text-indigo-400 md:text-2xl lg:text-3xl">Paslon 2: </td>
+                                <td class="text-2xl font-semibold text-indigo-400 md:text-3xl lg:text-4xl" id="osis-2">
+                                </td>
                             </tr>
                             <tr>
-                                <td class="text-4xl font-semibold">Paslon 3: </td>
-                                <td class="text-4xl font-semibold" id="osis-3"></td>
+                                <td class="text-xl font-semibold text-sky-400 md:text-2xl lg:text-3xl">Paslon 3: </td>
+                                <td class="text-2xl font-semibold text-sky-400 md:text-3xl lg:text-4xl" id="osis-3"></td>
                             </tr>
                             <tr>
-                                <td class="text-4xl font-semibold">Total Vote: </td>
-                                <td class="text-4xl font-semibold" id="total-osis"></td>
+                                <td class="text-2xl font-bold text-slate-600 md:text-3xl lg:text-4xl">Total Vote: </td>
+                                <td class="text-2xl font-bold text-slate-600 md:text-3xl lg:text-4xl" id="total-osis"></td>
                             </tr>
                         </tbody>
                     </table>
 
                 </div>
             </div>
-            <div class="flex h-[500px] gap-8">
-                <canvas id="mpkChart"></canvas>
-                <div class="grid place-content-center">
+            <div class="grid justify-center lg:grid-cols-2">
+                <div
+                    class="order-1 grid h-[250px] items-start justify-center md:h-[350px] lg:order-none lg:h-[500px] lg:place-content-center">
                     <table>
                         <tbody>
                             <tr>
-                                <td class="text-6xl font-bold" colspan="2">Paslon MPK</td>
+                                <td class="font-['Poppins'] text-2xl font-bold text-slate-900 md:text-4xl lg:text-6xl"
+                                    colspan="2">Paslon MPK
+                                </td>
                             </tr>
                             <tr>
-                                <td class="text-4xl font-semibold">Paslon 1: </td>
-                                <td class="text-4xl font-semibold" id="mpk-1"></td>
+                                <td class="text-xl font-semibold text-amber-400 md:text-2xl lg:text-3xl">Paslon 1: </td>
+                                <td class="text-2xl font-semibold text-amber-400 md:text-3xl lg:text-4xl" id="mpk-1">
+                                </td>
                             </tr>
                             <tr>
-                                <td class="text-4xl font-semibold">Paslon 2: </td>
-                                <td class="text-4xl font-semibold" id="mpk-2"></td>
+                                <td class="text-xl font-semibold text-emerald-400 md:text-2xl lg:text-3xl">Paslon 2: </td>
+                                <td class="text-2xl font-semibold text-emerald-400 md:text-3xl lg:text-4xl" id="mpk-2">
+                                </td>
                             </tr>
                             <tr>
-                                <td class="text-4xl font-semibold">Total Vote: </td>
-                                <td class="text-4xl font-semibold" id="total-mpk"></td>
+                                <td class="text-2xl font-bold text-slate-600 md:text-3xl lg:text-4xl">Total Vote: </td>
+                                <td class="text-2xl font-bold text-slate-600 md:text-3xl lg:text-4xl" id="total-mpk"></td>
                             </tr>
                         </tbody>
                     </table>
 
                 </div>
+                <div class="h-[250px] w-full md:h-[350px] lg:h-[500px]"><canvas id="mpkChart"></canvas></div>
+
             </div>
 
         </main>
@@ -126,20 +137,21 @@
                     osisCtx,
                     data.osis,
                     ['Paslon 1', 'Paslon 2', 'Paslon 3'],
-                    ['rgb(251, 113, 133)', 'rgb(167, 139, 250)', 'rgb(56, 189, 248)']
+                    ['rgb(244, 63, 94, .75)', 'rgb(99, 102, 241, .75)', 'rgb(14, 165, 233, .75)']
                 );
 
                 mpkVoteChart = createChart(
                     mpkCtx,
                     data.mpk,
                     ['Paslon 1', 'Paslon 2'],
-                    ['rgb(251, 113, 133)', 'rgb(167, 139, 250)']
+                    ['rgb(245, 158, 11, .75)', 'rgb(16, 185, 129, .75)']
                 );
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         }
 
+        fetchData();
         fetchData();
         setInterval(fetchData, 5000);
     </script>
