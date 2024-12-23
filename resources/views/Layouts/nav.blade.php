@@ -1,17 +1,19 @@
-<nav class="flex w-full items-center justify-between p-4 shadow-md">
-    <ul class="flex gap-2">
-        <li><a class="rounded-lg px-4 py-2 transition-colors hover:bg-slate-300 text-sm" href="/">Dashboard</a></li>
-        <li><a class="rounded-lg px-4 py-2 transition-colors hover:bg-slate-300 text-sm" href="/osis">Vote
-                OSIS</a></li>
-        <li><a class="rounded-lg px-4 py-2 transition-colors hover:bg-slate-300 text-sm" href="/mpk">Vote MPK</a>
-        </li>
+<nav class="relative flex w-full items-center justify-between p-4 shadow-md md:p-5 lg:p-6">
+    <label class="rounded-lg px-4 py-2 text-lg font-semibold transition-colors hover:bg-slate-300 md:hidden"><i
+            class="fi fi-br-menu-burger grid"></i><input type="checkbox" id="burger" hidden /></label>
+    <ul id="menu" class="z-10 hidden flex-col absolute md:static items-center gap-4 rounded-lg p-4 md:flex md:flex-row border md:border-none">
+        <li><x-link to="/">Dashboard</x-link></li>
+        <li><x-link to="/osis">Vote Osis</x-link></li>
+        <li><x-link to="/mpk">Vote Mpk</x-link></li>
         @auth
-        <li><a class="rounded-lg px-4 py-2 transition-colors hover:bg-slate-300 text-sm" href="/statistik">Statistik</a></li>
+            <li><x-link to="/statistik">Statistik</x-link></li>
         @endauth
     </ul>
     @auth
-    <a class="rounded-lg px-4 py-2 transition-colors hover:bg-slate-300 text-sm" href="/logout">Logout</a>
+        <x-link to="/logout">Log Out</x-link>
     @else
-    <a class="rounded-lg px-4 py-2 transition-colors hover:bg-slate-300 text-sm" href="/login">Login</a>
+        <x-link to="/login">Log In</x-link>
     @endauth
 </nav>
+
+<script></script>

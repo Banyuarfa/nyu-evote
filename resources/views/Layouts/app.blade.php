@@ -8,6 +8,10 @@
 
         <title>Laravel</title>
 
+        <!-- Icons -->
+        <link rel='stylesheet'
+            href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +27,7 @@
     <body class="font-['Nunito']">
         @include("Layouts.nav")
         @yield("content")
+        
     </body>
 
 </html>
