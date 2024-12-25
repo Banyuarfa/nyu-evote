@@ -11,7 +11,9 @@
             <h1 class="mb-2 text-center font-['Poppins'] text-2xl font-bold text-rose-500">MPK</h1>
             <form action="/mpk/vote" method="POST" class="flex flex-wrap items-center justify-center gap-2">
                 @csrf
-                <x-modal />
+                <x-modal type="confirmation">
+                    <p>Kamu hanya bisa memilih sekali. <br>Yakin ingin memilih <span class="text-red-500">Paslon</span>?</p>
+                </x-modal>
                 <x-card paslon="1" ketua="Fulan" wakil="bin Fulan" type="mpk" />
                 <x-card paslon="2" ketua="Fulan" wakil="bin Fulan" type="mpk" />
 
@@ -20,17 +22,10 @@
     </section>
     <script>
         const dialog = document.body.querySelector("dialog");
-
         function confirmation(e) {
             dialog.querySelector("span").textContent = `Paslon ${e.target.value}`;
             dialog.querySelector("input").value = e.target.value;
             dialog.showModal();
-            console.log(dialog.querySelector("span"));
         }
-
-        function closeModal() {
-            dialog.close();
-        }
-        console.log("sdf");
     </script>
 @endsection

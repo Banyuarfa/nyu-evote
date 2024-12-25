@@ -10,6 +10,6 @@ class MpkVoteController extends Controller
     public function store(Request $request)
     {
         Vote::create(["paslon" => $request->paslon, "type" => "mpk"]);
-        return redirect("/")->with("vote_an_mpk", true);
+        return redirect("/")->with("has_vote", true);
     }
 }

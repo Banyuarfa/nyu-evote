@@ -1,16 +1,32 @@
-<dialog class="relative rounded-lg p-4">
+<dialog class="fixed rounded-lg p-6">
     <div>
-        <input type="number" name="paslon" id="paslon" hidden>
-        <header class="flex items-center justify-between pb-1">
-            <h1 class="text-xl font-bold">Konfirmasi</h1><button type="button" onclick="closeModal()">Kembali</button>
-        </header>
-        <hr>
-        <main class="h-24 w-80 pt-1">
-            <p>Kamu hanya bisa memilih sekali. <br>Yakin ingin memilih <span class="text-red-500">Paslon</span>?</p>
+        @if ($type == "confirmation")
+            <header class="flex items-center justify-between pb-1">
+                <input type="number" name="paslon" id="paslon" hidden>
+                <h1 class="font-['Poppins'] text-xl font-bold">Konfirmasi</h1>
+            </header>
+            <hr>
+        @endif
+        <main class="min-w-80 pt-1">
+            @if ($type == "done")
+                <audio autoplay src="assets/sounds/done_sound.mp3"></audio>
+                <video loop autoplay class="mx-auto h-24" src="assets/icons/checked-animation.mp4"></video>
+            @endif
+            {{ $slot }}
+
         </main>
-        <footer class="float-end">
-            <button type="button" onclick="closeModal()" class="rounded-lg p-2">Kembali</button>
-            <button type="submit" class="rounded-lg bg-green-500 p-2 px-6">Yakin</button>
+        <footer class="float-end mt-2">
+
+            <button type="button" onclick="document.querySelector('dialog').close()"
+                class="rounded-lg border bg-white p-2 px-4 text-sm font-semibold hover:bg-slate-100">Kembali</button>
+            @if ($type == "confirmation")
+                <button type="submit"
+                    class="rounded-lg bg-green-500 p-2 px-6 text-sm font-semibold text-white hover:bg-green-600">Lanjut</button>
+            @else
+                <button type="button" onclick="document.querySelector('dialog').close()"
+                    class="rounded-lg bg-green-500 p-2 px-6 text-sm font-semibold text-white hover:bg-green-600">Lanjut</button>
+            @endif
+
         </footer>
     </div>
 </dialog>
