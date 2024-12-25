@@ -1,6 +1,6 @@
 @extends("Layouts.app")
 @section("content")
-    <section class="grid min-h-[calc(100vh_-_72px)] place-content-center p-8 md:p-12 lg:p-16">
+    <section class="grid min-h-[calc(100vh_-_72px)] place-content-center bg-slate-100 p-8 md:p-12 lg:p-16">
         <form action="/mpk/vote" method="POST" class="flex flex-wrap items-center justify-center gap-2">
             @csrf
             <x-modal />
