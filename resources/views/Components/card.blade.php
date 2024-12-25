@@ -3,7 +3,7 @@
     $colorMain = $isOsis ? 'sky' : 'rose';
 @endphp
 
-<div class="group w-52 lg:w-60 relative grid gap-2 rounded-lg border bg-white p-2 transition-all hover:bg-slate-900">
+<div class="group w-52 lg:w-52 relative grid gap-2 rounded-lg border bg-white p-2 transition-all hover:bg-slate-900">
     <div class="relative overflow-hidden rounded-lg">
         <img src="/assets/img/duck.jpeg" alt=""
             class="aspect-[3_/_4] w-full overflow-hidden rounded-lg object-cover transition-all group-hover:scale-105">

@@ -1,13 +1,22 @@
 @extends("Layouts.app")
 @section("content")
-    <section class="grid min-h-[calc(100vh_-_72px)] place-content-center bg-slate-100 p-8 md:p-12 lg:p-16">
-        <form action="/mpk/vote" method="POST" class="flex flex-wrap items-center justify-center gap-2">
-            @csrf
-            <x-modal />
-            <x-card paslon="1" ketua="Abdul Madjid" wakil="M Rosid Sunbus" type="mpk" />
-            <x-card paslon="2" ketua="Araechpaet R Gading" wakil="Tasya Desvita Sari" type="mpk" />
+    <section class="flex min-h-[calc(100vh_-_72px)] flex-wrap justify-evenly gap-y-10 bg-slate-100 p-8 md:p-12 lg:p-16">
+        <div>
+            <img class="mx-auto w-96" src="assets/img/king.png" alt="">
+            <h1
+                class="grid h-32 place-content-center rounded-lg border bg-white p-8 text-center font-['Poppins'] text-2xl font-bold md:text-3xl lg:top-[21rem] lg:text-4xl">
+                Choose your next leader!</h1>
+        </div>
+        <div class="grid place-content-center">
+            <h1 class="mb-2 text-center font-['Poppins'] text-2xl font-bold text-rose-500">MPK</h1>
+            <form action="/mpk/vote" method="POST" class="flex flex-wrap items-center justify-center gap-2">
+                @csrf
+                <x-modal />
+                <x-card paslon="1" ketua="Fulan" wakil="bin Fulan" type="mpk" />
+                <x-card paslon="2" ketua="Fulan" wakil="bin Fulan" type="mpk" />
 
-        </form>
+            </form>
+        </div>
     </section>
     <script>
         const dialog = document.body.querySelector("dialog");
