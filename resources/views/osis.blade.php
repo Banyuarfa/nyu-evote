@@ -1,28 +1,12 @@
 @extends("Layouts.app")
 @section("content")
-    <section class="grid h-[calc(100vh_-_72px)] place-content-center">
-        <form action="/osis/vote" method="POST" class="flex gap-2">
+    <section class="grid min-h-[calc(100vh_-_72px)] place-content-center bg-slate-100 p-8 md:p-12 lg:p-16">
+        <form action="/osis/vote" method="POST" class="flex gap-2 flex-wrap justify-center items-center">
             @csrf
-            <x-dialog />
-            <div class="relative">
-                <img src="/assets/img/duck.jpeg" alt="" class="aspect-[4_/_3] rounded-lg object-cover">
-                <button type="button" value="1"
-                    class="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-lg bg-sky-500 px-16 py-2 hover:bg-sky-600 text-sm"
-                    onclick="confirmation(event)">Vote</button>
-            </div>
-            <div class="relative">
-                <img src="/assets/img/duck.jpeg" alt="" class="aspect-[4_/_3] rounded-lg object-cover">
-                <button type="button" value="2"
-                    class="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-lg bg-sky-500 px-16 py-2 hover:bg-sky-600 text-sm"
-                    onclick="confirmation(event)">Vote</button>
-            </div>
-            <div class="relative">
-                <img src="/assets/img/duck.jpeg" alt="" class="aspect-[4_/_3] rounded-lg object-cover">
-                <button type="button" value="3"
-                    class="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-lg bg-sky-500 px-16 py-2 hover:bg-sky-600 text-sm"
-                    onclick="confirmation(event)">Vote</button>
-            </div>
-
+            <x-modal />
+            <x-card paslon="1" ketua="Abdul Madjid" wakil="M Rosid Sunbus" type="osis"/>
+            <x-card paslon="2" ketua="Araechpaet R Gading" wakil="Tasya Desvita Sari" type="osis" />
+            <x-card paslon="3" ketua="Tifatul Ikhsan" wakil="Adam Cordoba" type="osis"/>
         </form>
     </section>
     <script>

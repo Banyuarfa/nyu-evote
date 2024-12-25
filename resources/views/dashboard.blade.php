@@ -21,11 +21,10 @@
                 <img class="h-12 md:h-14 lg:h-16" src="assets/img/osis-logo.png" alt="">
             </div>
             <p class="mt-1 text-center text-base font-semibold uppercase md:mt-2 md:text-lg lg:mt-4 lg:text-xl"><span
-                    class="block">E-vote</span>Pilih pasangan
-                calonmu!</p>
+                    class="block">E-vote</span>Dukung paslon pilihanmu!</p>
         </div>
         <div class="flex h-full w-full">
-            <div class="relative left-0 h-full w-1/2 overflow-hidden hover:bg-[rgb(100,116,139,.1)] lg:top-0">
+            <div class="relative transition-all left-0 h-full w-1/2 overflow-hidden hover:bg-[rgb(14,165,233,.8)] bg-opacity-35 lg:top-0">
                 <a href="/osis"
                     class="absolute -left-24 w-[250%] transition-all hover:-left-20 hover:w-[270%] md:left-0 md:w-[150%] md:hover:left-2 md:hover:w-[160%] lg:-left-20 lg:hover:-left-14">
                     <p
@@ -34,7 +33,7 @@
                     <img class="" src="assets/img/siluet-osis.png" alt="">
                 </a>
             </div>
-            <div class="relative right-0 h-full w-1/2 overflow-hidden hover:bg-[rgb(100,116,139,.1)] lg:top-0">
+            <div class="relative transition-all right-0 h-full w-1/2 overflow-hidden hover:bg-[rgb(244,63,94,.8)] lg:top-0">
                 <a href="/mpk"
                     class="absolute -right-24 w-[250%] overflow-hidden transition-all hover:-right-20 hover:w-[270%] md:-right-8 md:w-[150%] md:hover:-right-6 md:hover:w-[160%] lg:-right-20 lg:hover:-right-14">
                     <p
