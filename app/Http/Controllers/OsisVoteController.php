@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class OsisVoteController extends Controller
 {
+    public function index()
+    {
+        return view('osis');
+    }
     public function store(Request $request)
     {
         Vote::create(["paslon" => $request->paslon, "type" => "osis"]);

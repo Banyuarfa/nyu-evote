@@ -11,7 +11,7 @@ class card extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public $paslon, public $ketua, public $wakil, public $type) {}
+    public function __construct(public $paslon, public $ketua, public $wakil, public $type, public $visi = "", public $misi = "") {}
 
     /**
      * Get the view / contents that represent the component.

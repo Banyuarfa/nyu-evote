@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('dashboard');
 })->name("dashboard");
-Route::get('/osis', function () {
-    return view('osis');
-});
+Route::get('/osis', [OsisVoteController::class, "index"]);
 Route::post('/osis/vote', [OsisVoteController::class, 'store']);
 
 Route::get('/mpk', function () {
