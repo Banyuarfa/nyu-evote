@@ -1,4 +1,4 @@
-<dialog id="{{ $id }}" class="fixed rounded-lg p-6">
+<dialog id="{{ $id }}" class="fixed rounded-lg p-6 w-full max-w-sm">
     <div>
         @if ($type == 'confirmation')
             <header class="flex items-center justify-between pb-1">
@@ -7,7 +7,7 @@
             </header>
             <hr>
         @endif
-        <main class="min-w-80 max-w-96 pt-1">
+        <main class=" pt-1">
             @if ($type == 'done')
                 <audio autoplay src="assets/sounds/done_sound.mp3"></audio>
                 <video loop autoplay class="mx-auto h-24" src="assets/icons/checked-animation.mp4"></video>
@@ -15,7 +15,7 @@
             {{ $slot }}
 
         </main>
-        <footer class="float-end mt-2">
+        <footer class="float-end pt-2">
 
             <button type="button" onclick="document.querySelector('#{{ $id }}').close()"
                 class="rounded-lg border bg-white p-2 px-4 text-sm font-semibold hover:bg-slate-100">Kembali</button>
