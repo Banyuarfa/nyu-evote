@@ -15,6 +15,6 @@ class OsisVoteController extends Controller
     public function store(Request $request)
     {
         Vote::create(["paslon" => $request->paslon, "type" => "osis"]);
-        return redirect("/")->with("has_vote", true);
+        return redirect("/")->with("has_vote_osis", true);
     }
 }

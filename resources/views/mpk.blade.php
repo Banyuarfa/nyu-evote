@@ -31,6 +31,10 @@
         <hr>
         <p class="mt-2"></p>
     </x-modal>
+    <x-modal id="has-vote">
+        <video loop autoplay class="mx-auto h-24" src="assets/icons/warning.mp4"></video>
+        <p>Peringatan! Kamu sudah menggunakan suaramu.</p>
+    </x-modal>
     <section class="flex min-h-[calc(100vh_-_72px)] flex-wrap justify-evenly gap-y-10 bg-slate-100 p-8 md:p-12 lg:p-16">
         <div>
             <img class="mx-auto w-96" src="assets/img/king.png" alt="">
@@ -45,21 +49,28 @@
                 <x-modal id="confirmation" type="confirmation">
                     <p>Kamu hanya bisa memilih sekali. <br>Yakin ingin memilih <span class="text-red-500">Paslon</span>?</p>
                 </x-modal>
-                <x-card paslon="1" ketua="Fulan" wakil="bin Fulan" type="mpk" :visi="$paslon1['visi']" :misi="$paslon1['misi']"/>
-                <x-card paslon="2" ketua="Fulan" wakil="bin Fulan" type="mpk" :visi="$paslon2['visi']" :misi="$paslon2['misi']"/>
+                <x-card paslon="1" ketua="Fulan" wakil="bin Fulan" type="mpk" :visi="$paslon1['visi']"
+                    :misi="$paslon1['misi']" />
+                <x-card paslon="2" ketua="Fulan" wakil="bin Fulan" type="mpk" :visi="$paslon2['visi']"
+                    :misi="$paslon2['misi']" />
 
             </form>
         </div>
     </section>
     <script>
-        const dialog = document.querySelector("#confirmation");
+        const confirm = document.querySelector("#confirmation")
+        const hasVote = document.querySelector("#has-vote")
 
         function confirmation(e) {
-            dialog.querySelector("span").textContent = `Paslon ${e.target.value}`;
-            dialog.querySelector("input").value = e.target.value;
-            dialog.showModal();
+            if (localStorage.getItem("hasVoteMpk")) {
+                hasVote.showModal()
+                return
+            }
+            confirm.querySelector("span").textContent = `Paslon ${e.target.value}`;
+            confirm.querySelector("input").value = e.target.value;
+            confirm.showModal()
         }
-        const visi= document.querySelector("#visi")
+        const visi = document.querySelector("#visi")
         const misi = document.querySelector("#misi")
 
         function openVisi(value, paslon) {
@@ -67,6 +78,7 @@
             visi.querySelector("main p").innerHTML = value
             visi.showModal();
         }
+
         function openMisi(value, paslon) {
             misi.querySelector("main h1").innerHTML = `Misi Paslon ${paslon}`
             misi.querySelector("main p").innerHTML = value

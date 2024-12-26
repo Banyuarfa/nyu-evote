@@ -36,6 +36,10 @@
         <hr>
         <p class="mt-2"></p>
     </x-modal>
+    <x-modal id="has-vote">
+        <video loop autoplay class="mx-auto h-24" src="assets/icons/warning.mp4"></video>
+        <p>Peringatan! Kamu sudah menggunakan suaramu.</p>
+    </x-modal>
     <section class="flex min-h-[calc(100vh_-_72px)] flex-wrap justify-evenly gap-y-10 bg-slate-100 p-8 md:p-12 lg:p-16">
         <div>
             <img class="mx-auto w-96" src="assets/img/king.png" alt="">
@@ -60,12 +64,17 @@
         </div>
     </section>
     <script>
-        const dialog = document.body.querySelector("#confirmation")
+        const confirm = document.querySelector("#confirmation")
+        const hasVote = document.querySelector("#has-vote")
 
         function confirmation(e) {
-            dialog.querySelector("span").textContent = `Paslon ${e.target.value}`;
-            dialog.querySelector("input").value = e.target.value;
-            dialog.showModal()
+            if (localStorage.getItem("hasVoteOsis")) {
+                hasVote.showModal()
+                return
+            }
+            confirm.querySelector("span").textContent = `Paslon ${e.target.value}`;
+            confirm.querySelector("input").value = e.target.value;
+            confirm.showModal()
         }
         const visi = document.querySelector("#visi")
         const misi = document.querySelector("#misi")
