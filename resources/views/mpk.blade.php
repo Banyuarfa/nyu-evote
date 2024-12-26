@@ -3,33 +3,28 @@
     @php
         $paslon1 = [
             'visi' =>
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, architecto sint magni quisquam cupiditate quas in sunt consectetur minima, nesciunt animi quam perferendis itaque quae cumque error ea iure consequatur blanditiis, vel consequuntur? Iste minus a reiciendis quisquam obcaecati dolor, assumenda pariatur et, nobis veritatis nam unde eum. Quis, nam.',
+                'Menjadikan MPK Sebagai Organisasi Legislatif Siswa Yang Inovatif, Responsif, Dan Kolaboratif, Menyalurkan Aspirasi Serta Mendukung Bakat, Minat, Dan Karakter Siswa Untuk Menciptakan Lingkungan Sekolah Yang Harmonis Dan Berprestasi.',
             'misi' =>
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, architecto sint magni quisquam cupiditate quas in sunt consectetur minima, nesciunt animi quam perferendis itaque quae cumque error ea iure consequatur blanditiis, vel consequuntur? Iste minus a reiciendis quisquam obcaecati dolor, assumenda pariatur et, nobis veritatis nam unde eum. Quis, nam.',
+                'Memperkuat Peran MPK Sebagai Pengawas Yang Objektif, Transparan, Dan Akuntabel Untuk Memastikan Program OSIS Efektif, Tepat Sasaran, Dan Bermanfaat Bagi Warga Sekolah. Membangun Sinergi Dengan Organisasi Dan Ekstrakurikuler Untuk Mendukung Bakat, Minat, Dan Prestasi Siswa. Mengoptimalkan Fungsi MPK Sebagai Penyalur Aspirasi Dengan Mekanisme Yang Mudah Diakses Dan Responsif. Meningkatkan Solidaritas MPK, OSIS, Dan Warga Sekolah Untuk Menciptakan Lingkungan Harmonis Dan Berprestasi',
+            'proker' =>
+                'Pusat Aspirasi Warga Satu (PASWAR). Rapat Evaluasi Berkala dan Kontrolisasi Anggota OSIS. MPK Peduli',
         ];
         $paslon2 = [
             'visi' =>
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, architecto sint magni quisquam cupiditate quas in sunt consectetur minima, nesciunt animi quam perferendis itaque quae cumque error ea iure consequatur blanditiis, vel consequuntur? Iste minus a reiciendis quisquam obcaecati dolor, assumenda pariatur et, nobis veritatis nam unde eum. Quis, nam.',
+                'Menjadi Pemimpin Yang Dapat Dipercaya Dan Berani Mengambil Keputusan Untuk Membawa Perubahan Baru Yang Lebih Baik, Mewujudkan MPK Yang Profesional Dalam Mengawasi Seluruh Lingkungan Sekolah Dan Kegiatan OSIS Dengan Efektif Serta Mampu Mengoptimalkan Kinerja Terbaik MPK Dalam Membantu Kesuksesan Kegiatan Dan Program Kerja OSIS.',
             'misi' =>
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, architecto sint magni quisquam cupiditate quas in sunt consectetur minima, nesciunt animi quam perferendis itaque quae cumque error ea iure consequatur blanditiis, vel consequuntur? Iste minus a reiciendis quisquam obcaecati dolor, assumenda pariatur et, nobis veritatis nam unde eum. Quis, nam.',
+                'Meningkatkan Keterlibatan Siswa Dalam Menyampaikan Aspirasi Serta Kritik & Saran Melalui Program Kerja Yang Akan Dijalankan. Mengawasi Serta Mengevaluasi Pelaksanaan Program Kerja OSIS Guna Memastikan Keselarasan Dengan Kepentingan Siswa. Mendukung Program-Program Yang Berperan Untuk Perkembangan Potensi Akademik Dan Non-Akademik Siswa. Mengajak Setiap Kelas Untuk Berpartisipasi Aktif Dalam Berjalannya Suatu Program Demi Keberhasilan Dan Kepuasan Bersama',
+            'proker' => 'Serangkul "Sarana Sharing Ekskul". Sapamu "Sampaikan Aspirasimu". MPK Mendengar',
         ];
 
     @endphp
-    <x-modal id="visi">
+    <x-modal id="visi-misi-proker">
         <header class="flex items-center justify-between pb-1">
             <input type="number" name="paslon" id="paslon" hidden>
             <h1 class="font-['Poppins'] text-xl font-bold"></h1>
         </header>
         <hr>
-        <p class="mt-2"></p>
-    </x-modal>
-    <x-modal id="misi">
-        <header class="flex items-center justify-between pb-1">
-            <input type="number" name="paslon" id="paslon" hidden>
-            <h1 class="font-['Poppins'] text-xl font-bold"></h1>
-        </header>
-        <hr>
-        <p class="mt-2"></p>
+        <p class="mt-2 text-slate-900"></p>
     </x-modal>
     <x-modal id="has-vote">
         <video loop autoplay class="mx-auto h-24" src="assets/icons/warning.mp4"></video>
@@ -49,10 +44,10 @@
                 <x-modal id="confirmation" type="confirmation">
                     <p>Kamu hanya bisa memilih sekali. <br>Yakin ingin memilih <span class="text-red-500">Paslon</span>?</p>
                 </x-modal>
-                <x-card paslon="1" ketua="Fulan" wakil="bin Fulan" type="mpk" :visi="$paslon1['visi']"
-                    :misi="$paslon1['misi']" />
-                <x-card paslon="2" ketua="Fulan" wakil="bin Fulan" type="mpk" :visi="$paslon2['visi']"
-                    :misi="$paslon2['misi']" />
+                <x-card paslon="1" ketua="Fulan" wakil="bin Fulan" type="mpk" :visi="$paslon1['visi']" :misi="$paslon1['misi']"
+                    :proker="$paslon1['proker']" />
+                <x-card paslon="2" ketua="Fulan" wakil="bin Fulan" type="mpk" :visi="$paslon2['visi']" :misi="$paslon2['misi']"
+                    :proker="$paslon2['proker']" />
 
             </form>
         </div>
@@ -70,19 +65,26 @@
             confirm.querySelector("input").value = e.target.value;
             confirm.showModal()
         }
-        const visi = document.querySelector("#visi")
-        const misi = document.querySelector("#misi")
+        const visiMisiProker = document.querySelector("#visi-misi-proker")
 
         function openVisi(value, paslon) {
-            visi.querySelector("main h1").innerHTML = `Visi Paslon ${paslon}`
-            visi.querySelector("main p").innerHTML = value
-            visi.showModal();
+            visiMisiProker.querySelector("main h1").innerHTML = `Visi Paslon ${paslon}`
+            visiMisiProker.querySelector("main p").innerHTML = value
+            visiMisiProker.showModal();
         }
 
         function openMisi(value, paslon) {
-            misi.querySelector("main h1").innerHTML = `Misi Paslon ${paslon}`
-            misi.querySelector("main p").innerHTML = value
-            misi.showModal();
+            const misi = value.split(". ").map(m => `<li class='mb-2'>${m}.</li>`).join("");
+            visiMisiProker.querySelector("main h1").innerHTML = `Misi Paslon ${paslon}`
+            visiMisiProker.querySelector("main p").innerHTML = `<ol class='list-decimal pl-4'>${misi}</ol>`
+            visiMisiProker.showModal();
+        }
+
+        function openProker(value, paslon) {
+            const proker = value.split(". ").map(p => `<li class='mb-2'>${p}.</li>`).join("");
+            visiMisiProker.querySelector("main h1").innerHTML = `Proker Paslon ${paslon}`
+            visiMisiProker.querySelector("main p").innerHTML = `<ol class='list-decimal pl-4'>${proker}</ol>`
+            visiMisiProker.showModal();
         }
     </script>
 @endsection

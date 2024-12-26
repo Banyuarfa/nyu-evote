@@ -28,7 +28,11 @@
                 Misi
             </button>
         </div>
-
+        <button type="button" value="{{ $proker }}"
+            onclick="openProker(event.target.value, '{{ $paslon }}')"
+            class="w-full rounded-lg border border-sky-100 py-2 text-sm font-semibold text-sky-500 hover:bg-sky-100 hover:text-sky-700">
+            Proker
+        </button>
     </div>
 @else
     <div
@@ -61,6 +65,11 @@
                 Misi
             </button>
         </div>
+        <button type="button" value="{{ $proker }}"
+            onclick="openProker(event.target.value, '{{ $paslon }}')"
+            class="w-full rounded-lg border border-rose-100 py-2 text-sm font-semibold text-rose-500 hover:bg-rose-100 hover:text-rose-700">
+            Proker
+        </button>
 
     </div>
 @endif
