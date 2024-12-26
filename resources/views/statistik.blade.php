@@ -1,12 +1,6 @@
-@extends("Layouts.app")
-@section("content")
-    @php
-        $vote_counts = json_decode($vote_counts, true);
-    @endphp
+@extends('Layouts.app')
+@section('content')
     <section class="min-h-[calc(100vh_-_72px)] bg-slate-100 p-8 md:p-12 lg:p-16">
-        @auth
-            <audio src="assets/sounds/done_sound_for_admin.mp3"></audio>
-        @endauth
         <main class="grid min-h-screen w-full rounded-lg bg-white p-2 md:p-6 lg:p-8">
             <h1 class="py-7 text-center text-2xl font-bold text-slate-900 md:py-14 md:text-4xl lg:py-28 lg:text-6xl">Total
                 Vote: <span class="text-5xl md:text-7xl lg:text-9xl" id="total"></span></h1>
@@ -80,7 +74,6 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
     <script>
         const osisCtx = document.getElementById('osisChart').getContext('2d');
         const mpkCtx = document.getElementById('mpkChart').getContext('2d');
@@ -89,16 +82,16 @@
         let mpkVoteChart;
 
         function updateVoteCounts(data) {
-            document.querySelector("#total").textContent = data.total.all.count;
+            document.querySelector("#total").textContent = data.total.all;
 
             document.querySelector("#osis-1").textContent = data.osis[0].count;
             document.querySelector("#osis-2").textContent = data.osis[1].count;
             document.querySelector("#osis-3").textContent = data.osis[2].count;
-            document.querySelector("#total-osis").textContent = data.total.osis.count;
+            document.querySelector("#total-osis").textContent = data.total.osis;
 
             document.querySelector("#mpk-1").textContent = data.mpk[0].count;
             document.querySelector("#mpk-2").textContent = data.mpk[1].count;
-            document.querySelector("#total-mpk").textContent = data.total.mpk.count;
+            document.querySelector("#total-mpk").textContent = data.total.mpk;
         }
 
         function createChart(chart, data, labels, colors) {

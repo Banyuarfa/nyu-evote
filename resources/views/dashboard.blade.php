@@ -1,48 +1,27 @@
 {{-- php artisan serve --host=192.168.1.10 --port=8000 --}}
 @extends('Layouts.app')
 @section('content')
-    @if (session('has_vote_osis') || session('has_vote_mpk'))
+    @if (session('has_vote_osis') || session('has_vote_mpk') || session('login_success') || session('logout_success'))
         <x-modal type="done">
-            <p class="text-center">Terimakasih sudah vote paslon pilihanmu!</p>
+            <p class="text-center">
+                @if (session('has_vote_osis') || session('has_vote_mpk'))
+                    Terimakasih sudah vote paslon pilihanmu!
+                @elseif (session('login_success'))
+                    Halo min! Log In berhasil.
+                @elseif (session('logout_success'))
+                    Oke min! Sampai jumpa lagi!
+                @endif
+            </p>
         </x-modal>
         <script>
             document.querySelector("dialog").showModal();
-        </script>
-    @endif
-    @if (session('login_success'))
-        <x-modal type="done">
-            <p class="text-center">Halo min! Log In berhasil.</p>
-        </x-modal>
-        <script>
-            document.querySelector("dialog").showModal();
-        </script>
-    @endif
-    @if (session('logout_success'))
-        <x-modal type="done">
-            <p class="text-center">Oke min! Sampai jumpa lagi!</p>
-        </x-modal>
-        <script>
-            document.querySelector("dialog").showModal();
-        </script>
-    @endif
-    @if (session('has_vote_osis'))
-        <script>
-            localStorage.setItem('hasVoteOsis', true);
-            console.log("sudah vote osis!");
-        </script>
-    @endif
-    @if (session('has_vote_mpk'))
-        <script>
-            localStorage.setItem('hasVoteMpk', true);
-            console.log("sudah vote mpk!");
         </script>
     @endif
 
     <section class="relative flex h-[calc(100vh_-_72px)] flex-col bg-slate-100">
         <div class="top-10 z-40 mx-auto my-8 lg:absolute lg:left-1/2 lg:m-0 lg:-translate-x-1/2">
             <div class="flex justify-center gap-2">
-                <img class="aspect-square h-12 object-contain md:h-14 lg:h-16" src="assets/img/smkn1-logo.webp"
-                    alt="">
+                <img class="aspect-square h-12 object-contain md:h-14 lg:h-16" src="assets/img/smkn1-logo.webp" alt="">
                 <img class="aspect-square h-12 object-contain md:h-14 lg:h-16" src="assets/img/chetana-vardhaka-sangha.png"
                     alt="">
                 <img class="aspect-square h-12 object-contain md:h-14 lg:h-16" src="assets/img/osis-logo.png"
@@ -75,4 +54,11 @@
         </div>
     </section>
     
+    <script>
+        @if (session('has_vote_osis'))
+            localStorage.setItem('hasVoteOsis', true);
+        @elseif (session('has_vote_mpk'))
+            localStorage.setItem('hasVoteMpk', true);
+        @endif
+    </script>
 @endsection

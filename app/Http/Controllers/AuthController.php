@@ -9,6 +9,7 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
+        $request->validate(["password" => "required"]);
         $credential = ["username" => "admin", "password" => $request->password];
         if (Auth::attempt($credential)) {
             $request->session()->regenerate();
@@ -20,11 +21,8 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
         return redirect('/')->with("logout_success", true);
     }
 }
