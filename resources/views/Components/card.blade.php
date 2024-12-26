@@ -9,8 +9,8 @@
             </span>
         </div>
         <span
-            class="absolute left-2 top-2 w-16 rounded-br-lg rounded-tl-lg bg-sky-500 p-1 text-sm font-semibold text-white transition-all group-hover:w-[calc(100%_-_1rem)] group-hover:rounded-br-none group-hover:rounded-tr-lg group-hover:bg-transparent group-hover:bg-gradient-to-b group-hover:from-sky-500 group-hover:to-transparent group-hover:pt-2 group-hover:text-center">
-            Paslon {{ $paslon }}
+            class="absolute left-2 top-2 w-20 rounded-br-lg rounded-tl-lg bg-sky-500 p-1 text-center text-sm font-semibold text-white transition-all group-hover:w-[calc(100%_-_1rem)] group-hover:rounded-br-none group-hover:rounded-tr-lg group-hover:bg-transparent group-hover:bg-gradient-to-b group-hover:from-sky-500 group-hover:to-transparent group-hover:pt-2">
+            No. Urut {{ $paslon }}
         </span>
 
         <button type="button" value="{{ $paslon }}"
@@ -46,8 +46,8 @@
             </span>
         </div>
         <span
-            class="absolute left-2 top-2 w-16 rounded-br-lg rounded-tl-lg bg-rose-500 p-1 text-sm font-semibold text-white transition-all group-hover:w-[calc(100%_-_1rem)] group-hover:rounded-br-none group-hover:rounded-tr-lg group-hover:bg-transparent group-hover:bg-gradient-to-b group-hover:from-rose-500 group-hover:to-transparent group-hover:pt-2 group-hover:text-center">
-            Paslon {{ $paslon }}
+            class="absolute left-2 top-2 w-20 rounded-br-lg rounded-tl-lg bg-rose-500 p-1 text-center text-sm font-semibold text-white transition-all group-hover:w-[calc(100%_-_1rem)] group-hover:rounded-br-none group-hover:rounded-tr-lg group-hover:bg-transparent group-hover:bg-gradient-to-b group-hover:from-rose-500 group-hover:to-transparent group-hover:pt-2">
+            No. Urut {{ $paslon }}
         </span>
 
         <button type="button" value="{{ $paslon }}"

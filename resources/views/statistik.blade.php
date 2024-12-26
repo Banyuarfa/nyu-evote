@@ -13,20 +13,20 @@
                         <tbody>
                             <tr>
                                 <td class="font-['Poppins'] text-2xl font-bold text-slate-900 md:text-4xl lg:text-6xl"
-                                    colspan="3">Paslon OSIS</td>
+                                    colspan="3">Data Vote OSIS</td>
                             </tr>
                             <tr>
-                                <td class="text-xl font-semibold text-rose-400 md:text-2xl lg:text-3xl">Paslon 1: </td>
+                                <td class="text-xl font-semibold text-rose-400 md:text-2xl lg:text-3xl">No. Urut 1: </td>
                                 <td class="text-2xl font-semibold text-rose-400 md:text-3xl lg:text-4xl" id="osis-1">
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-xl font-semibold text-indigo-400 md:text-2xl lg:text-3xl">Paslon 2: </td>
+                                <td class="text-xl font-semibold text-indigo-400 md:text-2xl lg:text-3xl">No. Urut 2: </td>
                                 <td class="text-2xl font-semibold text-indigo-400 md:text-3xl lg:text-4xl" id="osis-2">
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-xl font-semibold text-sky-400 md:text-2xl lg:text-3xl">Paslon 3: </td>
+                                <td class="text-xl font-semibold text-sky-400 md:text-2xl lg:text-3xl">No. Urut 3: </td>
                                 <td class="text-2xl font-semibold text-sky-400 md:text-3xl lg:text-4xl" id="osis-3"></td>
                             </tr>
                             <tr>
@@ -45,16 +45,16 @@
                         <tbody>
                             <tr>
                                 <td class="font-['Poppins'] text-2xl font-bold text-slate-900 md:text-4xl lg:text-6xl"
-                                    colspan="2">Paslon MPK
+                                    colspan="2">Data Vote MPK
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-xl font-semibold text-amber-400 md:text-2xl lg:text-3xl">Paslon 1: </td>
+                                <td class="text-xl font-semibold text-amber-400 md:text-2xl lg:text-3xl">No. Urut 1: </td>
                                 <td class="text-2xl font-semibold text-amber-400 md:text-3xl lg:text-4xl" id="mpk-1">
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-xl font-semibold text-emerald-400 md:text-2xl lg:text-3xl">Paslon 2: </td>
+                                <td class="text-xl font-semibold text-emerald-400 md:text-2xl lg:text-3xl">No. Urut 2: </td>
                                 <td class="text-2xl font-semibold text-emerald-400 md:text-3xl lg:text-4xl" id="mpk-2">
                                 </td>
                             </tr>
@@ -129,14 +129,14 @@
                 osisVoteChart = createChart(
                     osisCtx,
                     data.osis,
-                    ['Paslon 1', 'Paslon 2', 'Paslon 3'],
+                    ['Nomor Urut 1', 'Nomor Urut 2', 'Nomor Urut 3'],
                     ['rgb(244, 63, 94, .75)', 'rgb(99, 102, 241, .75)', 'rgb(14, 165, 233, .75)']
                 );
 
                 mpkVoteChart = createChart(
                     mpkCtx,
                     data.mpk,
-                    ['Paslon 1', 'Paslon 2'],
+                    ['Nomor Urut 1', 'Nomor Urut 2'],
                     ['rgb(245, 158, 11, .75)', 'rgb(16, 185, 129, .75)']
                 );
             } catch (error) {

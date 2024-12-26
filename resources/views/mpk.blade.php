@@ -38,11 +38,11 @@
                 Choose your next leader!</h1>
         </div>
         <div class="grid place-content-center">
-            <h1 class="mb-2 text-center font-['Poppins'] text-2xl font-bold text-rose-500">MPK</h1>
+            <h1 class="mb-2 text-center font-['Poppins'] text-4xl font-bold text-rose-500 md:text-5xl lg:text-6xl">MPK</h1>
             <form action="/mpk/vote" method="POST" class="flex flex-wrap items-center justify-center gap-2">
                 @csrf
                 <x-modal id="confirmation" type="confirmation">
-                    <p>Kamu hanya bisa memilih sekali. <br>Yakin ingin memilih <span class="text-red-500">Paslon</span>?</p>
+                    <p>Kamu hanya bisa memilih sekali. <br>Yakin ingin memilih <span class="text-red-500"></span>?</p>
                 </x-modal>
                 <x-card paslon="1" ketua="Fulan" wakil="bin Fulan" type="mpk" :visi="$paslon1['visi']" :misi="$paslon1['misi']"
                     :proker="$paslon1['proker']" />
@@ -61,28 +61,28 @@
                 hasVote.showModal()
                 return
             }
-            confirm.querySelector("span").textContent = `Paslon ${e.target.value}`;
+            confirm.querySelector("span").textContent = `Nomor Urut ${e.target.value}`;
             confirm.querySelector("input").value = e.target.value;
             confirm.showModal()
         }
         const visiMisiProker = document.querySelector("#visi-misi-proker")
 
         function openVisi(value, paslon) {
-            visiMisiProker.querySelector("main h1").innerHTML = `Visi Paslon ${paslon}`
+            visiMisiProker.querySelector("main h1").innerHTML = `Visi Nomor Urut ${paslon}`
             visiMisiProker.querySelector("main p").innerHTML = value
             visiMisiProker.showModal();
         }
 
         function openMisi(value, paslon) {
             const misi = value.split(". ").map(m => `<li class='mb-2'>${m}.</li>`).join("");
-            visiMisiProker.querySelector("main h1").innerHTML = `Misi Paslon ${paslon}`
+            visiMisiProker.querySelector("main h1").innerHTML = `Misi Nomor Urut ${paslon}`
             visiMisiProker.querySelector("main p").innerHTML = `<ol class='list-decimal pl-4'>${misi}</ol>`
             visiMisiProker.showModal();
         }
 
         function openProker(value, paslon) {
             const proker = value.split(". ").map(p => `<li class='mb-2'>${p}.</li>`).join("");
-            visiMisiProker.querySelector("main h1").innerHTML = `Proker Paslon ${paslon}`
+            visiMisiProker.querySelector("main h1").innerHTML = `Proker Nomor Urut ${paslon}`
             visiMisiProker.querySelector("main p").innerHTML = `<ol class='list-decimal pl-4'>${proker}</ol>`
             visiMisiProker.showModal();
         }

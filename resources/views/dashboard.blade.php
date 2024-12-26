@@ -27,8 +27,11 @@
                 <img class="aspect-square h-12 object-contain md:h-14 lg:h-16" src="assets/img/osis-logo.png"
                     alt="">
             </div>
-            <p class="mt-1 text-center text-base font-semibold uppercase md:mt-2 md:text-lg lg:mt-4 lg:text-xl"><span
-                    class="block">E-vote</span>Dukung paslon pilihanmu!</p>
+            <p
+                class="mt-1 text-center text-base font-semibold uppercase text-slate-700 md:mt-2 md:text-lg lg:mt-4 lg:text-xl">
+                <span
+                    class="block font-['Poppins'] text-xl font-bold text-slate-900 md:text-2xl lg:text-3xl">E-vote</span>Dukung
+                calon pemimpin pilihanmu <br> untuk masa depan cerah!</p>
         </div>
         <div class="flex h-full w-full">
             <div
@@ -53,7 +56,7 @@
 
         </div>
     </section>
-    
+
     <script>
         @if (session('has_vote_osis'))
             localStorage.setItem('hasVoteOsis', true);
