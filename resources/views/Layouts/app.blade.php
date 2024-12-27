@@ -24,7 +24,7 @@
     </head>
 
     <body class="font-['Nunito']">
-        @include('Layouts.nav')
+        @include('layouts.nav')
         @yield('content')
     </body>
 

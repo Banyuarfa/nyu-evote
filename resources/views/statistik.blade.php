@@ -1,4 +1,4 @@
-@extends('Layouts.app')
+@extends('layouts.app')
 @section('content')
     <section class="min-h-[calc(100vh_-_72px)] bg-slate-100 p-8 md:p-12 lg:p-16">
         <main class="grid min-h-screen w-full rounded-lg bg-white p-2 md:p-6 lg:p-8">

@@ -1,4 +1,4 @@
-@extends('Layouts.app')
+@extends('layouts.app')
 @section('content')
     <section class="flex h-[calc(100vh_-_72px)] items-center justify-center gap-2 bg-slate-100 p-4">
         <form action="/login" method="POST" class="grid w-full max-w-sm rounded-lg bg-white p-8 text-center">
