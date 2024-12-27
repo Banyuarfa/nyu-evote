@@ -18,7 +18,7 @@
         ];
 
     @endphp
-    <x-modal :id="'visi-misi-proker'">
+    <x-modal id="visi-misi-proker">
         <header class="flex items-center justify-between pb-1">
             <input type="number" name="paslon" id="paslon" hidden>
             <h1 class="font-['Poppins'] text-xl font-bold"></h1>
