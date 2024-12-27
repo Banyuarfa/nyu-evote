@@ -1,4 +1,4 @@
-@props(['id' => 'dialog', 'type' => ''])
+@props(['type' => ''])
 
 <dialog id="{{ $id }}" class="fixed w-full max-w-sm rounded-lg p-6">
     <div>
