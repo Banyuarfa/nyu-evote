@@ -1,8 +1,3 @@
-@props(['id' => 'dialog', 'type' => ''])
-@php
-    $type = '';
-@endphp
-
 <dialog id="{{ $id }}" class="fixed w-full max-w-sm rounded-lg p-6">
     <div>
         @if ($type == 'confirmation')
