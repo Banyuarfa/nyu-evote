@@ -5,13 +5,13 @@
 
 <dialog id="{{ $id }}" class="fixed w-full max-w-sm rounded-lg p-6">
     <div>
-        
+        @if ($type == 'confirmation')
             <header class="flex items-center justify-between pb-1">
                 <input type="number" name="paslon" id="paslon" hidden>
                 <h1 class="font-['Poppins'] text-xl font-bold">Konfirmasi</h1>
             </header>
             <hr>
-        
+        @endif
         <main class="pt-1">
             @if ($type == 'done')
                 <audio autoplay src="assets/sounds/done_sound.mp3"></audio>
