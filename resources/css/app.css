@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.menu{
-
-  top: 100px;
-  background-color: white;
-  display: flex;
+.menu {
+    top: calc(68px + 1rem);
+    background-color: white;
+    display: flex;
 }
