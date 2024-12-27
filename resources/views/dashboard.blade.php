@@ -2,10 +2,10 @@
 @extends('Layouts.app')
 @section('content')
     @if (session('has_vote_osis') || session('has_vote_mpk') || session('login_success') || session('logout_success'))
-        <x-modal :type="'done'">
+        <x-modal type="done">
             <p class="text-center">
                 @if (session('has_vote_osis') || session('has_vote_mpk'))
-                    Terimakasih sudah vote paslon pilihanmu!
+                    Terimakasih sudah vote calon pemimpin pilihanmu!
                 @elseif (session('login_success'))
                     Halo min! Log In berhasil.
                 @elseif (session('logout_success'))
