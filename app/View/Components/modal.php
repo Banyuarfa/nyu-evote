@@ -11,7 +11,7 @@ class modal extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public $type = "", public $id = "dialog") {}
+    public function __construct(public $type = "modal", public $id = "dialog") {}
 
     /**
      * Get the view / contents that represent the component.
