@@ -49,7 +49,7 @@
             <h1 class="mb-2 text-center font-['Poppins'] text-4xl font-bold text-sky-500 md:text-5xl lg:text-6xl">OSIS</h1>
             <form action="/osis/vote" method="POST" class="flex flex-wrap items-center justify-center gap-2">
                 @csrf
-                <x-modal id="confirmation" :type="'confirmation'">
+                <x-modal :id="'confirmation'" :type="'confirmation'">
                     <p>Kamu hanya bisa memilih sekali. <br>Yakin ingin memilih <span class="text-red-500"></span>?</p>
                 </x-modal>
                 <x-card paslon="1" ketua="Abdul Madjid" wakil="M Rosid Sunbus" :type="'osis'" :visi="$paslon1['visi']"
