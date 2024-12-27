@@ -28,7 +28,7 @@
                     alt="">
             </div>
             <p
-                class="mt-1 text-center text-base font-semibold uppercase text-slate-700 md:mt-2 md:text-lg lg:mt-4 lg:text-xl">
+                class="mt-1 text-center text-sm font-semibold uppercase text-slate-700 md:mt-2 md:text-base lg:mt-4 lg:text-lg">
                 <span
                     class="block font-['Poppins'] text-xl font-bold text-slate-900 md:text-2xl lg:text-3xl">E-vote</span>Dukung
                 calon pemimpin pilihanmu <br> untuk masa depan cerah!
