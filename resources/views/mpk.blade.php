@@ -18,7 +18,7 @@
         ];
 
     @endphp
-    <x-modal id="visi-misi-proker">
+    <x-modal :id="'visi-misi-proker'">
         <header class="flex items-center justify-between pb-1">
             <input type="number" name="paslon" id="paslon" hidden>
             <h1 class="font-['Poppins'] text-xl font-bold"></h1>
@@ -26,7 +26,7 @@
         <hr>
         <p class="mt-2 text-slate-900"></p>
     </x-modal>
-    <x-modal id="has-vote">
+    <x-modal :id="'has-vote'">
         <video loop autoplay class="mx-auto h-24" src="assets/icons/warning.mp4"></video>
         <p>Peringatan! Kamu sudah menggunakan suaramu.</p>
     </x-modal>
@@ -41,7 +41,7 @@
             <h1 class="mb-2 text-center font-['Poppins'] text-4xl font-bold text-rose-500 md:text-5xl lg:text-6xl">MPK</h1>
             <form action="/mpk/vote" method="POST" class="flex flex-wrap items-center justify-center gap-2">
                 @csrf
-                <x-modal id="confirmation" type="confirmation">
+                <x-modal :id="'confirmation'" type="confirmation">
                     <p>Kamu hanya bisa memilih sekali. <br>Yakin ingin memilih <span class="text-red-500"></span>?</p>
                 </x-modal>
                 <x-card paslon="1" ketua="Fulan" wakil="bin Fulan" type="mpk" :visi="$paslon1['visi']" :misi="$paslon1['misi']"
