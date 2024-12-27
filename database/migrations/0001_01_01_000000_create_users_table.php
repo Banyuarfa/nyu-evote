@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -20,10 +19,10 @@ return new class extends Migration
         });
 
         DB::table('users')->insert([
-            "username" =>"admin",
-            "password" => Hash::make("1234")
+            "username" => "admin",
+            "password" => bcrypt("1234")
         ]);
-    
+
 
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();

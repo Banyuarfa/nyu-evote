@@ -84,13 +84,14 @@
         function updateVoteCounts(data) {
             document.querySelector("#total").textContent = data.total.all;
 
-            document.querySelector("#osis-1").textContent = data.osis[0].count;
-            document.querySelector("#osis-2").textContent = data.osis[1].count;
-            document.querySelector("#osis-3").textContent = data.osis[2].count;
+            document.querySelector("#osis-1").textContent = data.osis[0]?.count ?? 0;
+            document.querySelector("#osis-2").textContent = data.osis[1]?.count ?? 0;
+            document.querySelector("#osis-3").textContent = data.osis[2]?.count ?? 0;
             document.querySelector("#total-osis").textContent = data.total.osis;
+            console.log(data)
 
-            document.querySelector("#mpk-1").textContent = data.mpk[0].count;
-            document.querySelector("#mpk-2").textContent = data.mpk[1].count;
+            document.querySelector("#mpk-1").textContent = data.mpk[0]?.count ?? 0;
+            document.querySelector("#mpk-2").textContent = data.mpk[1]?.count ?? 0;
             document.querySelector("#total-mpk").textContent = data.total.mpk;
         }
 
@@ -119,6 +120,7 @@
             try {
                 const response = await fetch("/statistik/data");
                 const data = await response.json();
+                console.log(data)
 
                 if (osisVoteChart || mpkVoteChart) {
                     updateChart(data)
@@ -146,6 +148,5 @@
 
         fetchData();
         fetchData();
-        setInterval(fetchData, 5000);
     </script>
 @endsection
