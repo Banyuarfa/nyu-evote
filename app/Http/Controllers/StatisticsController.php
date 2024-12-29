@@ -14,20 +14,21 @@ class StatisticsController extends Controller
     {
         try {
             $vote_counts = [
-                "osis" => Vote::select('paslon', Vote::raw('COUNT(*) as count'))
-                    ->whereIn('type', ['osis'])
-                    ->groupBy("paslon")
-                    ->get() ?? [],
-                "mpk" => Vote::select('paslon', Vote::raw('COUNT(*) as count'))
-                    ->whereIn('type', ['mpk'])
-                    ->groupBy("paslon")
-                    ->get() ?? [],
-                "total" =>
-                [
-                    "all" => Vote::count() ?? 0,
-                    "osis" => Vote::whereIn('type',  ['osis'])->count() ?? 0,
-                    "mpk" => Vote::whereIn('type', ['mpk'])->count() ?? 0
+                "osis" => [
+                    "data" => Vote::select('paslon', Vote::raw('COUNT(*) as count'))
+                        ->whereIn('type', ['osis'])
+                        ->groupBy("paslon")
+                        ->get() ?? [],
+                    "total" => Vote::whereIn('type',  ['osis'])->count() ?? 0
                 ],
+                "mpk" => [
+                    "data" => Vote::select('paslon', Vote::raw('COUNT(*) as count'))
+                        ->whereIn('type', ['mpk'])
+                        ->groupBy("paslon")
+                        ->get() ?? [],
+                    "total" => Vote::whereIn('type', ['mpk'])->count() ?? 0
+                ],
+                "total" => Vote::count() ?? 0
             ];
 
             return response()->json($vote_counts);
