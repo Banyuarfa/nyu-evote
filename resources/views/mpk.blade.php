@@ -44,10 +44,10 @@
                 <x-modal id="confirmation" type="confirmation">
                     <p>Kamu hanya bisa memilih sekali. <br>Yakin ingin memilih <span class="text-red-500"></span>?</p>
                 </x-modal>
-                <x-card paslon="1" ketua="Fulan" wakil="bin Fulan" type="mpk" :visi="$paslon1['visi']" :misi="$paslon1['misi']"
-                    :proker="$paslon1['proker']" />
-                <x-card paslon="2" ketua="Fulan" wakil="bin Fulan" type="mpk" :visi="$paslon2['visi']" :misi="$paslon2['misi']"
-                    :proker="$paslon2['proker']" />
+                <x-card paslon="1" ketua="Raka Khaesa" wakil="XI-DPIB II" type="mpk" :visi="$paslon1['visi']"
+                    :misi="$paslon1['misi']" :proker="$paslon1['proker']" />
+                <x-card paslon="2" ketua="Kenichi Mierza Mahendra" wakil="XI-TITL III" type="mpk" :visi="$paslon2['visi']"
+                    :misi="$paslon2['misi']" :proker="$paslon2['proker']" />
 
             </form>
         </div>
