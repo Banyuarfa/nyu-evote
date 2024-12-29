@@ -52,12 +52,12 @@
                 <x-modal id="confirmation" type="confirmation">
                     <p>Kamu hanya bisa memilih sekali. <br>Yakin ingin memilih <span class="text-red-500"></span>?</p>
                 </x-modal>
-                <x-card paslon="1" ketua="Abdul Madjid" wakil="M Rosid Sunbus" type="osis" :visi="$paslon1['visi']"
-                    :misi="$paslon1['misi']" :proker="$paslon1['proker']" />
-                <x-card paslon="2" ketua="Araechpaet R Gading" wakil="Tasya Desvita Sari" type="osis"
+                <x-card paslon="1" ketua="Abdul Madjid XI-SIJA" wakil="M Rosid Sunbus X-TP II" type="osis"
+                    :visi="$paslon1['visi']" :misi="$paslon1['misi']" :proker="$paslon1['proker']" />
+                <x-card paslon="2" ketua="Araechpaet R Gading XI-RPL" wakil="Tasya Desvita Sari X-DKV" type="osis"
                     :visi="$paslon2['visi']" :misi="$paslon2['misi']" :proker="$paslon2['proker']" />
-                <x-card paslon="3" ketua="Tifatul Ikhsan" wakil="Adam Cordoba" type="osis" :visi="$paslon3['visi']"
-                    :misi="$paslon3['misi']" :proker="$paslon3['proker']" />
+                <x-card paslon="3" ketua="Tifatul Ikhsan XI-TKP I" wakil="Adam Cordoba X-TKR I" type="osis"
+                    :visi="$paslon3['visi']" :misi="$paslon3['misi']" :proker="$paslon3['proker']" />
             </form>
         </div>
     </section>
