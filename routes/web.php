@@ -19,10 +19,7 @@ Route::post("/login", [AuthController::class, "login"])->name('login')->name("lo
 Route::get("/logout", [AuthController::class, "logout"])->name('logout')->name("logout");
 
 Route::get('/osis', [OsisVoteController::class, "index"])->name("osis");
-Route::get(
-    '/mpk',
-    fn() => view('mpk')
-)->name("mpk");
+Route::get("/mpk", [MpkVoteController::class, "index"])->name("mpk");
 
 Route::post('/osis/vote', [OsisVoteController::class, 'store'])->name("osis.vote");
 Route::post('/mpk/vote', [MpkVoteController::class, 'store'])->name("mpk.vote");
