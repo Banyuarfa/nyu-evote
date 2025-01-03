@@ -10,7 +10,7 @@
     </x-modal>
     <x-modal id="has-vote">
         <video loop autoplay class="mx-auto h-24" src="assets/icons/warning.mp4"></video>
-        <p>Peringatan! Kamu sudah menggunakan suaramu.</p>
+        <p>Peringatan! Kamu sudah menggunakan suaramu. Mohon tunggu beberapa saat.</p>
     </x-modal>
     <section class="flex min-h-[calc(100vh_-_72px)] flex-wrap justify-evenly gap-y-10 bg-slate-100 p-8 md:p-12 lg:p-16">
         <div>
@@ -39,7 +39,7 @@
         const hasVote = document.querySelector("#has-vote")
 
         function confirmation(e) {
-            if (localStorage.getItem("hasVoteMpk")) {
+            if (JSON.parse(localStorage.getItem("hasVoteMpk"))?.value) {
                 hasVote.showModal()
                 return
             }

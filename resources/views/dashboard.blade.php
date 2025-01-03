@@ -57,12 +57,17 @@
 
         </div>
     </section>
-
     <script>
         @if (session('has_vote_osis'))
-            localStorage.setItem('hasVoteOsis', true);
+            localStorage.setItem('hasVoteOsis', JSON.stringify({
+                value: true,
+                expired: Date.now() + 10000
+            }));
         @elseif (session('has_vote_mpk'))
-            localStorage.setItem('hasVoteMpk', true);
+            localStorage.setItem('hasVoteMpk', JSON.stringify({
+                value: true,
+                expired: Date.now() + 10000
+            }));
         @endif
     </script>
 @endsection

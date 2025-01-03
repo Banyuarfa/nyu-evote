@@ -26,6 +26,18 @@
     <body class="font-['Nunito']">
         @include('layouts.nav')
         @yield('content')
+        <script>
+            setInterval(() => {
+                const hasVoteOsis = JSON.parse(localStorage.getItem('hasVoteOsis'));
+                const hasVoteMpk = JSON.parse(localStorage.getItem('hasVoteMpk'));
+                const osisExpiredTime = hasVoteOsis?.expired;
+                const mpkExpiredTime = hasVoteMpk?.expired;
+                const now = Date.now();
+
+                if (hasVoteOsis && (now > osisExpiredTime)) localStorage.removeItem('hasVoteOsis');
+                if (hasVoteMpk && (now > mpkExpiredTime)) localStorage.removeItem('hasVoteMpk');
+            }, 1000);
+        </script>
     </body>
 
 </html>
